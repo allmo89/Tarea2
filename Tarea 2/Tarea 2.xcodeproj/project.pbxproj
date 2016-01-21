@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5023A851C514D1F00B5FBCB /* ViewResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5023A841C514D1F00B5FBCB /* ViewResult.swift */; };
+		C5023A871C51594E00B5FBCB /* clsBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5023A861C51594E00B5FBCB /* clsBook.swift */; };
 		C5B611DA1C51448A00D45503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B611D91C51448A00D45503 /* AppDelegate.swift */; };
 		C5B611DD1C51448A00D45503 /* Tarea_2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C5B611DB1C51448A00D45503 /* Tarea_2.xcdatamodeld */; };
 		C5B611DF1C51448A00D45503 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B611DE1C51448A00D45503 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5023A841C514D1F00B5FBCB /* ViewResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewResult.swift; sourceTree = "<group>"; };
+		C5023A861C51594E00B5FBCB /* clsBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = clsBook.swift; sourceTree = "<group>"; };
 		C5B611D41C51448A00D45503 /* Tarea 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tarea 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B611D81C51448A00D45503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C5B611D91C51448A00D45503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,11 +85,13 @@
 			children = (
 				C5B611D91C51448A00D45503 /* AppDelegate.swift */,
 				C5B611DE1C51448A00D45503 /* ViewController.swift */,
+				C5023A841C514D1F00B5FBCB /* ViewResult.swift */,
 				C5B611E01C51448A00D45503 /* Main.storyboard */,
 				C5B611E31C51448A00D45503 /* Images.xcassets */,
 				C5B611E51C51448A00D45503 /* LaunchScreen.xib */,
 				C5B611DB1C51448A00D45503 /* Tarea_2.xcdatamodeld */,
 				C5B611D71C51448A00D45503 /* Supporting Files */,
+				C5023A861C51594E00B5FBCB /* clsBook.swift */,
 			);
 			path = "Tarea 2";
 			sourceTree = "<group>";
@@ -172,7 +178,7 @@
 				};
 			};
 			buildConfigurationList = C5B611CF1C51448A00D45503 /* Build configuration list for PBXProject "Tarea 2" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -216,6 +222,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C5B611DF1C51448A00D45503 /* ViewController.swift in Sources */,
+				C5023A851C514D1F00B5FBCB /* ViewResult.swift in Sources */,
+				C5023A871C51594E00B5FBCB /* clsBook.swift in Sources */,
 				C5B611DD1C51448A00D45503 /* Tarea_2.xcdatamodeld in Sources */,
 				C5B611DA1C51448A00D45503 /* AppDelegate.swift in Sources */,
 			);
@@ -415,6 +423,7 @@
 				C5B611F81C51448A00D45503 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5B611F91C51448A00D45503 /* Build configuration list for PBXNativeTarget "Tarea 2Tests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +432,7 @@
 				C5B611FB1C51448A00D45503 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

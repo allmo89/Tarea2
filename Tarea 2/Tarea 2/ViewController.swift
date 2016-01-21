@@ -8,18 +8,56 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,UITextFieldDelegate {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var txtISBN: UITextField!
+    var ResultBook = clsBook()
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let code = textField.text
+        let urls = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:\(code)"
+        let url = NSURL(string:urls)
+        let datos:NSData? = NSData(contentsOfURL: url!)
+        if datos != nil{
+         
+            ProcessResult(datos!)
+        }
+        else
+        {
+             alertaDeError()
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+    func alertaDeError(){
+        let alerta = UIAlertController(title: "Error de conexión", message: "Verifique su conexion a internet", preferredStyle: UIAlertControllerStyle.Alert)
+        alerta.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+            alerta.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        presentViewController(alerta, animated: true, completion: nil)
+    }
+    
+    func ProcessResult(result: NSData)
+    {
+    var ParseError: NSError
+     if result.length > 0
+     {
+     ResultBook.title = txtISBN.text
+
+        
+     }
+        else
+     {
+     ResultBook.title = "No se encontraron datos"
+        
+        }
+     
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+        var result : ViewResult = segue.destinationViewController as! ViewResult
+        result.BookData = ResultBook
     }
-
-
 }
 
