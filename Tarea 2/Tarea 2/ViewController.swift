@@ -12,7 +12,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var txtISBN: UITextField!
     var ResultBook = clsBook()
-    
+    override func viewWillAppear(animated: Bool) {
+           txtISBN.text=""
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let code = textField.text
         let urls = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:\(code)"
