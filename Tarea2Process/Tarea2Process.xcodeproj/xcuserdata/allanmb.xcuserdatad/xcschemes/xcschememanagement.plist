@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Tarea 2.xcscheme</key>
+		<key>Tarea2Process.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>C5B611D31C51448A00D45503</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C5B611EB1C51448A00D45503</key>
+		<key>C51D7F641C5285710006A32B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

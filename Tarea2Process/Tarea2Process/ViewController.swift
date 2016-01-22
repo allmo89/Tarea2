@@ -1,32 +1,33 @@
 //
 //  ViewController.swift
-//  Tarea 2
+//  Tarea2Process
 //
-//  Created by Allan Mora Brenes on 1/21/16.
-//  Copyright (c) 2016 Allan Mora Brenes. All rights reserved.
+//  Created by Allan Mora Brenes on 1/22/16.
+//  Copyright © 2016 Allan Mora Brenes. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController,UITextFieldDelegate {
 
+class ViewController: UIViewController,UITextFieldDelegate {
+    
     @IBOutlet weak var txtISBN: UITextField!
     var ResultBook = clsBook()
     override func viewWillAppear(animated: Bool) {
-           txtISBN.text=""
+        txtISBN.text=""
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let code = textField.text
-        let urls = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:\(code)"
+        let urls = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:" + code!
         let url = NSURL(string:urls)
         let datos:NSData? = NSData(contentsOfURL: url!)
         if datos != nil{
-         
+            
             ProcessResult(datos!)
         }
         else
         {
-             alertaDeError()
+            alertaDeError()
         }
         textField.resignFirstResponder()
         return true
@@ -41,25 +42,26 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     func ProcessResult(result: NSData)
     {
-    var ParseError: NSError
-     if result.length > 0
-     {
-     ResultBook.title = txtISBN.text
-
-        
-     }
-        else
-     {
-     ResultBook.title = "No se encontraron datos"
-        
+        var ParseError: NSError
+        if result.length > 0
+        {
+            ResultBook.title = txtISBN.text!
+            
+            
         }
-     
+        else
+        {
+            ResultBook.title = "No se encontraron datos"
+            
+        }
+        
     }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         var result : ViewResult = segue.destinationViewController as! ViewResult
         result.BookData = ResultBook
     }
 }
+
 
