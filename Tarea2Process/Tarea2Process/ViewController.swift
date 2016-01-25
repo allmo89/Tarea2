@@ -60,13 +60,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
                     {
                     ResultBook.UrlCover=covers["medium"] as! String
                     }
-                    if let authors = BookData["authors"] as? NSDictionary
+                    if let authors = BookData["authors"] as? [[String: AnyObject]]
                     {
-                        if let aut_names = authors["name"] as? [[String: AnyObject]] {
-                            for name in aut_names {
-                                if let name = name["name"] as? String {
-                                    ResultBook.autors += name+"\n"
-                                }
+                        for blog in authors {
+                            if let name = blog["name"] as? String {
+                                ResultBook.autors += name + "\n"
                             }
                         }
                     }

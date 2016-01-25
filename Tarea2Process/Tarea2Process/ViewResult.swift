@@ -16,7 +16,7 @@ class ViewResult: UIViewController{
     @IBOutlet weak var txtResult: UITextView!
     @IBOutlet weak var IVCover: UIImageView!
     override func  viewDidLoad() {
-        txtResult.text = BookData.title
+      
         if(!BookData.UrlCover.isEmpty)
         {
         if let checkedUrl = NSURL(string:BookData.UrlCover)
@@ -32,8 +32,9 @@ class ViewResult: UIViewController{
             
         }
         var Resultado = String()
-        
+        Resultado += "Titulo:\n"
         Resultado += BookData.title + "\n"
+        Resultado += "Autores:\n"
         Resultado += BookData.autors
         txtResult.text = Resultado
     
