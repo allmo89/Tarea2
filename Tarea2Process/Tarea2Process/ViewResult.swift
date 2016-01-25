@@ -15,6 +15,7 @@ class ViewResult: UIViewController{
     
     @IBOutlet weak var txtResult: UITextView!
     @IBOutlet weak var IVCover: UIImageView!
+
     override func  viewDidLoad() {
       
         if(!BookData.UrlCover.isEmpty)
