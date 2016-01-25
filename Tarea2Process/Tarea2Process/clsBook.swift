@@ -9,7 +9,7 @@
 import Foundation
 class clsBook  {
     
-    var title = String();
-    var autors : [String]?
-    var UrlCover = String();
+    var title = String()
+    var autors = String()
+    var UrlCover = String()
 }

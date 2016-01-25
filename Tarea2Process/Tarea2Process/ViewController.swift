@@ -23,7 +23,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         let datos:NSData? = NSData(contentsOfURL: url!)
         if datos != nil{
             
-            ProcessResult(datos!)
+            ProcessResult(datos!,ISBN:String(code!))
         }
         else
         {
@@ -40,13 +40,41 @@ class ViewController: UIViewController,UITextFieldDelegate {
         presentViewController(alerta, animated: true, completion: nil)
     }
     
-    func ProcessResult(result: NSData)
+    func ProcessResult(result: NSData,ISBN : String)
     {
-        var ParseError: NSError
+
         if result.length > 0
         {
-            ResultBook.title = txtISBN.text!
             
+            do {
+                let json = try NSJSONSerialization.JSONObjectWithData(result, options: NSJSONReadingOptions.MutableLeaves)
+                let jSONData = json as! NSDictionary
+                if let BookData = jSONData["ISBN:"+ISBN] as? NSDictionary
+                {
+                    if let title = BookData["title"] as? String
+                    {
+                        ResultBook.title=title
+                    }
+                    
+                    if let covers = BookData["cover"] as? NSDictionary
+                    {
+                    ResultBook.UrlCover=covers["medium"] as! String
+                    }
+                    if let authors = BookData["authors"] as? NSDictionary
+                    {
+                        if let aut_names = authors["name"] as? [[String: AnyObject]] {
+                            for name in aut_names {
+                                if let name = name["name"] as? String {
+                                    ResultBook.autors += name+"\n"
+                                }
+                            }
+                        }
+                    }
+                    
+                }
+            } catch {
+                print("error serializing JSON: \(error)")
+            }
             
         }
         else
@@ -59,7 +87,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var result : ViewResult = segue.destinationViewController as! ViewResult
+        let result : ViewResult = segue.destinationViewController as! ViewResult
         result.BookData = ResultBook
     }
 }
