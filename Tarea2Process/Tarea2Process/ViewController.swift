@@ -17,13 +17,14 @@ class ViewController: UIViewController,UITextFieldDelegate {
         txtISBN.text=""
     }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let code = textField.text
-        let urls = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:" + code!
+        let code = textField.text!.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        let urls = "https://openlibrary.org/api/books?jscmd=data&format=json&bibkeys=ISBN:" + code
+
         let url = NSURL(string:urls)
         let datos:NSData? = NSData(contentsOfURL: url!)
         if datos != nil{
             
-            ProcessResult(datos!,ISBN:String(code!))
+            ProcessResult(datos!,ISBN:String(code))
         }
         else
         {
